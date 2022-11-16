@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "backend_dart_bff"
+		},
+		{
+			"path": "flutter_bff_app"
+		}
+	],
+	"settings": {
+		"dart.flutterSdkPath": "C:\\Users\\Orlando Eduardo Pere\\fvm\\versions\\stable"
+	}
+}

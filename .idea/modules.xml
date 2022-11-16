@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/backend_dart_bff/melos_backend_dart_bff.iml" filepath="$PROJECT_DIR$/backend_dart_bff/melos_backend_dart_bff.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_bff_app/melos_flutter_bff_app.iml" filepath="$PROJECT_DIR$/flutter_bff_app/melos_flutter_bff_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melos_beon.iml" filepath="$PROJECT_DIR$/melos_beon.iml" />
+    </modules>
+  </component>
+</project>
