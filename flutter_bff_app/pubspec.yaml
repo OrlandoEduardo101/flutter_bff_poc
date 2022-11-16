@@ -37,6 +37,8 @@ dependencies:
   flutter_modular: ^5.0.3
   flutter_triple: ^1.2.7+4
   shelf_modular: ^2.0.1
+  design_system:
+    path: ../design_system
 
 dev_dependencies:
   flutter_test:
