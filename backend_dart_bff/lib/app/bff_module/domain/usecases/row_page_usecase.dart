@@ -32,6 +32,7 @@ class RowPageUsecase extends IRowPageUsecase {
       ),
       BffEntity(
         widgetId: 'navButton',
+        paddingVertical: 8,
         title: 'homePage',
         route: '/count',
       ),

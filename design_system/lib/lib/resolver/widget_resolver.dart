@@ -48,6 +48,13 @@ class WidgetResolver extends StatelessWidget {
           key: Key(widgetKey + key.toString()),
         );
         break;
+      case 'navBlankButton':
+        widgetChild = NavBlankButton(
+          title: dsModel.title,
+          onPressed: onPressedButton,
+          key: Key(widgetKey + key.toString()),
+        );
+        break;
       case 'row':
         widgetChild = RowWidget(
           key: Key(widgetKey + key.toString()),

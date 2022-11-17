@@ -19,8 +19,8 @@ class BffModel extends BffEntity {
       'title': title,
       'route': route,
       'page_name': pageName,
-      'padding_vertical': paddingHorizontal,
-      'padding_horizontal': paddingVertical,
+      'padding_vertical': paddingVertical,
+      'padding_horizontal': paddingHorizontal,
       'widget_list': widgetList.map((x) => (BffModel.from(x)).toMap()).toList(),
     };
   }

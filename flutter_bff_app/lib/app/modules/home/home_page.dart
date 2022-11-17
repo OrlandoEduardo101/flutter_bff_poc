@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    store.fetchItens();
   }
 
   @override
@@ -31,23 +30,18 @@ class _HomePageState extends State<HomePage> {
       body: ScopedBuilder<HomeStore, Exception, List<DsModel>>(
         store: store,
         onState: (_, state) {
-          return Container(
-            height: 50,
-            padding: const EdgeInsets.all(10),
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemCount: state.length,
-              separatorBuilder: (context, index) => const SizedBox(width: 50,),
-              itemBuilder: (context, index) {
-                final item = state[index];
-                return ElevatedButton(
-                  onPressed: () {
-                    Modular.to.pushNamed('/blankPage', arguments: item);
-                  },
-                  child: Text('Item $index ${item.title}'),
-                );
-              },
+          return Center(
+            child: Container(
+              height: 50,
+              padding: const EdgeInsets.all(10),
+              child: ElevatedButton(
+                onPressed: () {
+                  Modular.to.pushNamed(
+                    '/blankPage/',
+                  );
+                },
+                child: const Text('Go To BFF Page'),
+              ),
             ),
           );
         },

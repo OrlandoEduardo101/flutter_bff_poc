@@ -11,8 +11,7 @@ abstract class ISelectPageUsecase {
 class SelectPageUsecase extends ISelectPageUsecase {
   @override
   Future<Either<DomainError, BffEntity>> call(BffArgumentsEntity args) async {
-    return right(BffEntity(
-      pageName: 'Select Page', widgetList: [
+    return right(BffEntity(pageName: 'Select Page', widgetList: [
       BffEntity(
         widgetId: 'appBar',
         title: 'appBar page 1',
@@ -33,7 +32,12 @@ class SelectPageUsecase extends ISelectPageUsecase {
         widgetId: 'card3',
         title: 'appBar page 3',
       ),
-      BffEntity(widgetId: 'navButton', title: 'new blank page', route: '/blankPage/', pageName: 'page 1 b'),
+      BffEntity(
+        widgetId: 'navBlankButton',
+        title: 'new blank page',
+        route: 'rowPage',
+        pageName: 'page 1 b',
+      ),
     ]));
   }
 }

@@ -45,8 +45,8 @@ class DsModel {
       'title': title,
       'route': route,
       'page_name': pageName,
-      'padding_vertical': paddingHorizontal,
-      'padding_horizontal': paddingVertical,
+      'padding_vertical': paddingVertical,
+      'padding_horizontal': paddingHorizontal,
       'widget_list': widgetList.map((x) => x.toMap()).toList(),
     };
   }

@@ -1,4 +1,4 @@
-import 'package:flutter_bff_app/app/modules/home/get_widgets_service.dart';
+import 'package:flutter_bff_app/app/modules/blank/get_widgets_service.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../home/home_store.dart';
@@ -7,8 +7,7 @@ import 'home_page.dart';
 class HomeModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.factory((i) => GetWidgetsService(i())),
-    Bind.lazySingleton((i) => HomeStore(i())),
+    Bind.lazySingleton((i) => HomeStore()),
   ];
 
   @override

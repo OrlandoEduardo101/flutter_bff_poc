@@ -7,11 +7,10 @@ class GetWidgetsService {
   final Uno httpClient;
 
   GetWidgetsService(this.httpClient);
-  Future<List<DsModel>> getDsModelList() async {
+  Future<DsModel> getDsModelList(String argRoute) async {
     try {
-      final response = await httpClient.get('http://127.0.0.1:3001/bffModule/');
-      final responseList = List.from(response.data).map((e) => DsModel.fromMap(e)).toList();
-      return responseList;
+      final response = await httpClient.get('http://127.0.0.1:3001/bffModule/$argRoute');
+      return DsModel.fromMap(response.data);
     } catch (e) {
       log(e.toString());
       rethrow;
