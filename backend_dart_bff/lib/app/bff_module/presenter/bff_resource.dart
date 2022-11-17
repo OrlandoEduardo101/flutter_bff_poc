@@ -7,7 +7,7 @@ import 'package:shelf_modular/shelf_modular.dart';
 class BffResource implements Resource {
   @override
   List<Route> get routes => [
-        Route.get('/', () => returnBffScreen),
+        Route.get('/',(ModularArguments args, Request request) => returnBffScreen(args, request)),
       ];
 
   FutureOr<Response> returnBffScreen(ModularArguments args, Request request) =>

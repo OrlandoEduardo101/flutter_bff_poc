@@ -39,6 +39,7 @@ dependencies:
   shelf_modular: ^2.0.1
   design_system:
     path: ../design_system
+  uno: ^1.0.1+5
 
 dev_dependencies:
   flutter_test:

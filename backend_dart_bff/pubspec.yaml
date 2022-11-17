@@ -10,6 +10,7 @@ environment:
 #   path: ^1.8.0
 dependencies: 
     shelf: ^1.4.0
+    shelf_cors_headers: ^0.1.4
     shelf_modular: ^2.0.1
     
 dev_dependencies:

@@ -4,12 +4,14 @@ class DsModel {
   final String widgetId;
   final String title;
   final String route;
+  final String pageName;
   final List<DsModel> widgetList;
 
   const DsModel({
     this.widgetId = '',
     this.title= '',
     this.route= '',
+    this.pageName= '',
     this.widgetList = const [],
   });
 
@@ -17,12 +19,14 @@ class DsModel {
     String? widgetId,
     String? title,
     String? route,
+    String? pageName,
     List<DsModel>? widgetList,
   }) {
     return DsModel(
       widgetId: widgetId ?? this.widgetId,
       title: title ?? this.title,
       route: route ?? this.route,
+      pageName: pageName ?? this.pageName,
       widgetList: widgetList ?? this.widgetList,
     );
   }
@@ -32,7 +36,8 @@ class DsModel {
       'widgetId': widgetId,
       'title': title,
       'route': route,
-      'widgetList': widgetList.map((x) => x.toMap()).toList(),
+      'page_name': pageName,
+      'widget_list': widgetList.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -41,7 +46,8 @@ class DsModel {
       widgetId: map['widgetId'] ?? '',
       title: map['title'] ?? '',
       route: map['route'] ?? '',
-      widgetList: List<DsModel>.from(map['widgetList']?.map((x) => DsModel.fromMap(x))),
+      pageName: map['page_name'] ?? '',
+      widgetList: map['widget_list'] != null ? List<DsModel>.from(map['widget_list']?.map((x) => DsModel.fromMap(x))) : [],
     );
   }
 

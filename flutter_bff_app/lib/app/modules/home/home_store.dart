@@ -1,20 +1,18 @@
+import 'package:design_system/design_system.dart';
+import 'package:flutter_bff_app/app/modules/home/get_widgets_service.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-class HomeStore extends NotifierStore<Exception, int> {
-  HomeStore() : super(0);
+class HomeStore extends NotifierStore<Exception, List<DsModel>> {
+  HomeStore(this._getWidgetsService) : super([]);
 
-  Future<void> increment() async {
+  final GetWidgetsService _getWidgetsService;
+
+  Future<void> fetchItens() async {
     setLoading(true);
 
-    await Future.delayed(Duration(seconds: 1));
+    final result = await _getWidgetsService.getDsModelList();
 
-    int value = state + 1;
-    if (value < 5) {
-      update(value);
-    } else {
-      setError(Exception('Error: state not can be > 4'));
-    }
-
+    update(result);
     setLoading(false);
   }
 }

@@ -15,5 +15,36 @@
 	],
 	"settings": {
 		"dart.flutterSdkPath": "C:\\Users\\Orlando Eduardo Pere\\fvm\\versions\\stable"
-	}
+	},
+	"launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Backend",
+                "request": "launch",
+                "type": "dart",
+                "program": "bin/backend_dart_bff.dart",
+                "cwd": "${workspaceFolder:backend_dart_bff}",
+                "args": [
+                    // "--flavor",
+                    // "dev",
+                    // "--release",
+                    // "--enable-software-rendering",
+                ]
+            },
+            {
+                "name": "App",
+                "request": "launch",
+                "type": "dart",
+                "program": "lib/main.dart",
+                "cwd": "${workspaceFolder:flutter_bff_app}",
+                "args": [
+                    // "--flavor",
+                    // "production",
+                    // "--release",
+                    // "--enable-software-rendering",
+                ]
+            }
+        ]
+    },
 }
