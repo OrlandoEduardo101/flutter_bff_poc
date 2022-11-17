@@ -5,13 +5,17 @@ class DsModel {
   final String title;
   final String route;
   final String pageName;
+  final double paddingHorizontal;
+  final double paddingVertical;
   final List<DsModel> widgetList;
 
   const DsModel({
     this.widgetId = '',
-    this.title= '',
-    this.route= '',
-    this.pageName= '',
+    this.title = '',
+    this.route = '',
+    this.pageName = '',
+    this.paddingHorizontal = 0,
+    this.paddingVertical = 0,
     this.widgetList = const [],
   });
 
@@ -20,6 +24,8 @@ class DsModel {
     String? title,
     String? route,
     String? pageName,
+    double? paddingHorizontal,
+    double? paddingVertical,
     List<DsModel>? widgetList,
   }) {
     return DsModel(
@@ -28,6 +34,8 @@ class DsModel {
       route: route ?? this.route,
       pageName: pageName ?? this.pageName,
       widgetList: widgetList ?? this.widgetList,
+      paddingHorizontal: paddingHorizontal ?? this.paddingHorizontal,
+      paddingVertical: paddingVertical ?? this.paddingVertical,
     );
   }
 
@@ -37,6 +45,8 @@ class DsModel {
       'title': title,
       'route': route,
       'page_name': pageName,
+      'padding_vertical': paddingHorizontal,
+      'padding_horizontal': paddingVertical,
       'widget_list': widgetList.map((x) => x.toMap()).toList(),
     };
   }
@@ -47,7 +57,10 @@ class DsModel {
       title: map['title'] ?? '',
       route: map['route'] ?? '',
       pageName: map['page_name'] ?? '',
-      widgetList: map['widget_list'] != null ? List<DsModel>.from(map['widget_list']?.map((x) => DsModel.fromMap(x))) : [],
+      paddingHorizontal: double.tryParse('${map['padding_horizontal']}' ) ?? 0.0,
+      paddingVertical: double.tryParse('${map['padding_vertical']}' ) ?? 0.0,
+      widgetList:
+          map['widget_list'] != null ? List<DsModel>.from(map['widget_list']?.map((x) => DsModel.fromMap(x))) : [],
     );
   }
 

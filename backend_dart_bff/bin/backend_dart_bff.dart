@@ -33,7 +33,7 @@ void main(List<String> arguments) async {
       ],
     );
 
-    final server = await io.serve(modularHandler, '0.0.0.0', 3002);
+    final server = await io.serve(modularHandler, '0.0.0.0', 3001);
     print('Server started: ${server.address.address}:${server.port}');
 }
 

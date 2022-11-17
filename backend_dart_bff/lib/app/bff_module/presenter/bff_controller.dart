@@ -28,21 +28,50 @@ class BffController {
           {
             'widgetId': 'navButton',
             'title': 'new blank page',
-            'route': '/blankPage',
+            'route': '/blankPage/',
             'page_name': 'page 1 b',
             'widget_list': [
+              {'widgetId': 'appBar', 'title': 'appBar page 2 b', 'padding_vertical': 16},
               {
-                'widgetId': 'appBar',
-                'title': 'appBar page 2 b',
+                'widgetId': 'sizedBox',
+                'padding_vertical': 8,
+                'padding_horizontal': 16,
               },
               {
                 'widgetId': 'card1',
                 'title': 'texto texto card 1',
               },
               {
+                'widgetId': 'sizedBox',
+                'padding_vertical': 8,
+              },
+              {
                 'widgetId': 'navButton',
                 'title': 'homePage',
                 'route': '/count',
+              },
+              {
+                'widgetId': 'row',
+                'widget_list': [
+                  {
+                    'padding_vertical': 8,
+                    'padding_horizontal': 16,
+                    'widgetId': 'card1',
+                    'title': 'texto texto row card 1',
+                  },
+                  {
+                    'padding_vertical': 8,
+                    'padding_horizontal': 16,
+                    'widgetId': 'card1',
+                    'title': 'texto texto row card 2',
+                  },
+                  {
+                    'padding_vertical': 8,
+                    'padding_horizontal': 16,
+                    'widgetId': 'card1',
+                    'title': 'texto texto row card 3',
+                  },
+                ]
               },
             ]
           },
@@ -71,7 +100,7 @@ class BffController {
             'widgetId': 'navButton',
             'title': 'new blank page',
             'page_name': 'page 2 b',
-            'route': '/blankPage',
+            'route': '/blankPage/',
             'widget_list': [
               {
                 'widgetId': 'appBar',
@@ -112,7 +141,7 @@ class BffController {
           {
             'widgetId': 'navButton',
             'title': 'new blank page',
-            'route': '/blankPage',
+            'route': '/blankPage/',
             'page_name': 'page 3 b',
             'widget_list': [
               {
@@ -155,7 +184,7 @@ class BffController {
             'page_name': 'page 4 b',
             'widgetId': 'navButton',
             'title': 'new blank page',
-            'route': '/blankPage',
+            'route': '/blankPage/',
             'widget_list': [
               {
                 'widgetId': 'appBar',
@@ -196,7 +225,7 @@ class BffController {
           {
             'widgetId': 'navButton',
             'title': 'new blank page',
-            'route': '/blankPage',
+            'route': '/blankPage/',
             'page_name': 'page 5 b',
             'widget_list': [
               {

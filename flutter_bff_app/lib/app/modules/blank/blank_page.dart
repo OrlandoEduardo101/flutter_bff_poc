@@ -25,21 +25,18 @@ class BlankPageState extends State<BlankPage> {
         body: List.generate(
       widget.dsModel.widgetList.length,
       (index) => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: WidgetResolver(
-            widgetKey: widget.dsModel.widgetList[index].widgetId,
-            key:  Key('${widget.dsModel.widgetList[index].widgetId}-$index'),
-            dsModel: widget.dsModel.widgetList[index],
-            onPressedButton: widget.dsModel.widgetList[index].widgetId.contains('navButton')
-                ? () {
-                    Modular.to.pushNamed(
-                      widget.dsModel.widgetList[index].route,
-                      arguments: widget.dsModel.widgetList[index],
-                    );
-                  }
-                : null,
-          ),
+        child: WidgetResolver(
+          widgetKey: widget.dsModel.widgetList[index].widgetId,
+          key: Key('${widget.dsModel.widgetList[index].widgetId}-$index'),
+          dsModel: widget.dsModel.widgetList[index],
+          onPressedButton: widget.dsModel.widgetList[index].widgetId.contains('navButton')
+              ? () {
+                  Modular.to.pushNamed(
+                    widget.dsModel.widgetList[index].route,
+                    arguments: widget.dsModel.widgetList[index],
+                  );
+                }
+              : null,
         ),
       ),
     ));

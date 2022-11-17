@@ -8,3 +8,4 @@ export './lib/cards/custom_card_3.dart';
 export './lib/model/ds_model.dart';
 export './lib/page_base/page_base.dart';
 export './lib/resolver/widget_resolver.dart';
+export './lib/structural_widgets/row_widget.dart';

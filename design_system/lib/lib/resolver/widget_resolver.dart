@@ -1,11 +1,5 @@
 import 'package:design_system/design_system.dart';
-import 'package:design_system/lib/buttons/nav_button.dart';
-import 'package:design_system/lib/cards/custom_card_1.dart';
-import 'package:design_system/lib/cards/custom_card_3.dart';
-import 'package:design_system/lib/model/ds_model.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../cards/custom_card_2.dart';
 
 class WidgetResolver extends StatelessWidget {
   const WidgetResolver({
@@ -20,35 +14,61 @@ class WidgetResolver extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    late Widget widgetChild;
+
     switch (widgetKey) {
       case 'appBar':
-        return CustomAppBar(
+        widgetChild = CustomAppBar(
           title: dsModel.title,
           key: Key(widgetKey + key.toString()),
         );
+        break;
       case 'card1':
-        return CustomCard1(
+        widgetChild = CustomCard1(
           title: dsModel.title,
           key: Key(widgetKey + key.toString()),
         );
+        break;
       case 'card2':
-        return CustomCard2(
+        widgetChild = CustomCard2(
           title: dsModel.title,
           key: Key(widgetKey + key.toString()),
         );
+        break;
       case 'card3':
-        return CustomCard3(
+        widgetChild = CustomCard3(
           title: dsModel.title,
           key: Key(widgetKey + key.toString()),
         );
+        break;
       case 'navButton':
-        return NavButton(
+        widgetChild = NavButton(
           title: dsModel.title,
           onPressed: onPressedButton,
           key: Key(widgetKey + key.toString()),
         );
+        break;
+      case 'row':
+        widgetChild = RowWidget(
+          key: Key(widgetKey + key.toString()),
+          children: List<Widget>.generate(
+              dsModel.widgetList.length,
+              (index) =>
+                  WidgetResolver(widgetKey: dsModel.widgetList[index].widgetId, dsModel: dsModel.widgetList[index])),
+        );
+        break;
       default:
-        return const SizedBox.shrink();
+        widgetChild = SizedBox.shrink(
+          child: SizedBox(
+            height: dsModel.paddingVertical,
+            width: dsModel.paddingHorizontal,
+          ),
+        );
     }
+
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: dsModel.paddingVertical, horizontal: dsModel.paddingHorizontal),
+      child: widgetChild,
+    );
   }
 }

@@ -9,7 +9,7 @@ class GetWidgetsService {
   GetWidgetsService(this.httpClient);
   Future<List<DsModel>> getDsModelList() async {
     try {
-      final response = await httpClient.get('http://127.0.0.1:3002/bffModule/');
+      final response = await httpClient.get('http://127.0.0.1:3001/bffModule/');
       final responseList = List.from(response.data).map((e) => DsModel.fromMap(e)).toList();
       return responseList;
     } catch (e) {
