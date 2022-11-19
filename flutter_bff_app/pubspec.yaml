@@ -40,6 +40,7 @@ dependencies:
   design_system:
     path: ../design_system
   uno: ^1.0.1+5
+  mocktail: ^0.3.0
 
 dev_dependencies:
   flutter_test:

@@ -5,12 +5,14 @@ import 'count_store.dart';
 
 class CountPage extends StatefulWidget {
   final String title;
-  const CountPage({Key? key, this.title = 'CountPage'}) : super(key: key);
+  final CountStore store;
+  const CountPage({Key? key, this.title = 'CountPage', required this.store}) : super(key: key);
   @override
   CountPageState createState() => CountPageState();
 }
+
 class CountPageState extends State<CountPage> {
-  final CountStore store = Modular.get();
+  CountStore get store => widget.store;
 
   @override
   Widget build(BuildContext context) {
