@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_triple/flutter_triple.dart';
 
 import 'count_store.dart';
 
@@ -21,8 +22,18 @@ class CountPageState extends State<CountPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[
+          ScopedBuilder<CountStore, Exception, int>.transition(
+            store: store,
+            onLoading: (context) => const Center(child: CircularProgressIndicator.adaptive(),),
+            onState: (context, state) => Center(child: Text('$state'),),
+          ),
+        ],
       ),
+      floatingActionButton: Row(children: [
+        FloatingActionButton(onPressed: store.decrementCount, child: const Icon(Icons.remove)),
+        FloatingActionButton(onPressed: store.incrementCount, child: const Icon(Icons.add)),
+      ],),
     );
   }
 }
