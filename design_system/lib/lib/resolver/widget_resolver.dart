@@ -1,4 +1,6 @@
 import 'package:design_system/design_system.dart';
+import 'package:design_system/lib/text/text_field_widget.dart';
+import 'package:design_system/lib/text/text_title_widget.dart';
 import 'package:flutter/cupertino.dart';
 
 class WidgetResolver extends StatelessWidget {
@@ -6,11 +8,12 @@ class WidgetResolver extends StatelessWidget {
     Key? key,
     required this.widgetKey,
     required this.dsModel,
-    this.onPressedButton,
+    this.onPressedButton, this.onFieldSubmitted,
   }) : super(key: key);
   final String widgetKey;
   final DsModel dsModel;
   final void Function()? onPressedButton;
+  final void Function(String value)? onFieldSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +65,18 @@ class WidgetResolver extends StatelessWidget {
               dsModel.widgetList.length,
               (index) =>
                   WidgetResolver(widgetKey: dsModel.widgetList[index].widgetId, dsModel: dsModel.widgetList[index])),
+        );
+        break;
+      case 'textTitle':
+        widgetChild = TextTitleWidget(
+          key: Key(widgetKey + key.toString()),
+          title: dsModel.title,
+        );
+        break;
+      case 'textField':
+        widgetChild = TextFieldWidget(
+          key: Key(widgetKey + key.toString()),
+          onFieldSubmitted: onFieldSubmitted,
         );
         break;
       default:

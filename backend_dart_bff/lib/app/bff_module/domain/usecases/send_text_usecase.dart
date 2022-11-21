@@ -4,73 +4,37 @@ import '../entities/bff_arguments_entity.dart';
 import '../entities/bff_entity.dart';
 import '../errors/errors.dart';
 
-abstract class IRowPageUsecase {
+abstract class ISendTextUsecase {
   Future<Either<DomainError, BffEntity>> call(BffArgumentsEntity args);
 }
 
-class RowPageUsecase extends IRowPageUsecase {
+class SendTextUsecase extends ISendTextUsecase {
   @override
   Future<Either<DomainError, BffEntity>> call(BffArgumentsEntity args) async {
-    return right(BffEntity(pageName: 'Row Page', widgetList: [
+    return right(
       BffEntity(
-        widgetId: 'appBar',
-        title: 'appBar page 2 b',
-        paddingVertical: 16,
+        pageName: 'Text Page',
+        getWidgetsInPage: false,
+        widgetList: [
+          BffEntity(
+            widgetId: 'appBar',
+            title: 'appBar Text Page',
+            paddingVertical: 16,
+          ),
+          BffEntity(
+            widgetId: 'textTitle',
+            title: 'Texto enviado: ${args.textTitle}',
+            paddingVertical: 8,
+            paddingHorizontal: 16,
+            getWidgetsInPage: false,
+          ),
+          BffEntity(
+            widgetId: 'sizedBox',
+            paddingVertical: 8,
+          ),
+        ],
       ),
-      BffEntity(
-        widgetId: 'sizedBox',
-        paddingVertical: 8,
-        paddingHorizontal: 16,
-      ),
-      BffEntity(
-        widgetId: 'card1',
-        title: 'texto texto card 1',
-      ),
-      BffEntity(
-        widgetId: 'sizedBox',
-        paddingVertical: 8,
-      ),
-      BffEntity(
-        widgetId: 'navButton',
-        paddingVertical: 8,
-        title: 'homePage',
-        route: '/count',
-      ),
-      BffEntity(
-        widgetId: 'sizedBox',
-        paddingVertical: 8,
-      ),
-      BffEntity(
-        widgetId: 'textField',
-        paddingVertical: 8,
-        paddingHorizontal: 32,
-        route: 'sendText',
-      ),
-      BffEntity(
-        widgetId: 'sizedBox',
-        paddingVertical: 8,
-      ),
-      BffEntity(widgetId: 'row', widgetList: [
-        BffEntity(
-          paddingVertical: 8,
-          paddingHorizontal: 16,
-          widgetId: 'card1',
-          title: 'texto texto row card 1',
-        ),
-        BffEntity(
-          paddingVertical: 8,
-          paddingHorizontal: 16,
-          widgetId: 'card1',
-          title: 'texto texto row card 2',
-        ),
-        BffEntity(
-          paddingVertical: 8,
-          paddingHorizontal: 16,
-          widgetId: 'card1',
-          title: 'texto texto row card 3',
-        ),
-      ]),
-    ]));
+    );
   }
 }
 /*

@@ -10,6 +10,7 @@ class BffModel extends BffEntity {
     super.pageName = '',
     super.paddingHorizontal = 0,
     super.paddingVertical = 0,
+    super.getWidgetsInPage = true,
     super.widgetList = const [],
   });
 
@@ -21,6 +22,7 @@ class BffModel extends BffEntity {
       'page_name': pageName,
       'padding_vertical': paddingVertical,
       'padding_horizontal': paddingHorizontal,
+      'get_widgets_in_page': getWidgetsInPage,
       'widget_list': widgetList.map((x) => (BffModel.from(x)).toMap()).toList(),
     };
   }
@@ -31,6 +33,7 @@ class BffModel extends BffEntity {
       title: map['title'] ?? '',
       route: map['route'] ?? '',
       pageName: map['page_name'] ?? '',
+      getWidgetsInPage: map['get_widgets_in_page'] ?? '',
       paddingHorizontal: double.tryParse('${map['padding_horizontal']}') ?? 0.0,
       paddingVertical: double.tryParse('${map['padding_vertical']}') ?? 0.0,
       widgetList:
@@ -50,5 +53,6 @@ class BffModel extends BffEntity {
         title: source.title,
         widgetId: source.widgetId,
         widgetList: source.widgetList,
+        getWidgetsInPage: source.getWidgetsInPage,
       );
 }

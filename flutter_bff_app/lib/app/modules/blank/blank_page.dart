@@ -24,7 +24,11 @@ class BlankPageState extends State<BlankPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      store.fetchItens(widget.dsModel.route);
+      if (widget.dsModel.getWidgetsInPage) {
+        store.fetchItens(widget.dsModel.route);
+      } else {
+        store.setModel(widget.dsModel);
+      }
     });
   }
 
@@ -50,6 +54,15 @@ class BlankPageState extends State<BlankPage> {
                   widgetKey: state.widgetList[index].widgetId,
                   key: Key('${state.widgetList[index].widgetId}-$index'),
                   dsModel: state.widgetList[index],
+                  onFieldSubmitted: (value) async {
+                    if (state.widgetList[index].widgetId.contains('textField')) {
+                      final result = await store.sendText(state.widgetList[index], value);
+                      Modular.to.pushNamed(
+                        '/blankPage/',
+                        arguments: result,
+                      );
+                    }
+                  },
                   onPressedButton: () {
                     if (state.widgetList[index].widgetId.contains('navButton')) {
                       Modular.to.pushNamed(

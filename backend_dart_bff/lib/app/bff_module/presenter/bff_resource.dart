@@ -9,6 +9,7 @@ class BffResource implements Resource {
   List<Route> get routes => [
         Route.get('/',(ModularArguments args, Request request) => returnSelectPage(args, request)),
         Route.get('/rowPage',(ModularArguments args, Request request) => returnRowPage(args, request)),
+        Route.post('/sendText',(ModularArguments args, Request request) => sendText(args, request)),
       ];
 
   FutureOr<Response> returnSelectPage(ModularArguments args, Request request) =>
@@ -16,4 +17,7 @@ class BffResource implements Resource {
 
   FutureOr<Response> returnRowPage(ModularArguments args, Request request) =>
       Modular.get<BffController>().returnRowPage(args, request);
+
+  FutureOr<Response> sendText(ModularArguments args, Request request) =>
+      Modular.get<BffController>().sendText(args, request);
 }

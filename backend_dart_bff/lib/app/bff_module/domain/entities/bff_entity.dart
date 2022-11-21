@@ -7,6 +7,7 @@ class BffEntity {
   final String pageName;
   final double paddingHorizontal;
   final double paddingVertical;
+  final bool getWidgetsInPage;
   final List<BffEntity> widgetList;
 
   const BffEntity({
@@ -16,6 +17,7 @@ class BffEntity {
     this.pageName = '',
     this.paddingHorizontal = 0,
     this.paddingVertical = 0,
+    this.getWidgetsInPage = true,
     this.widgetList = const [],
   });
 
@@ -26,6 +28,7 @@ class BffEntity {
     String? pageName,
     double? paddingHorizontal,
     double? paddingVertical,
+    bool? getWidgetsInPage,
     List<BffEntity>? widgetList,
   }) {
     return BffEntity(
@@ -36,7 +39,7 @@ class BffEntity {
       widgetList: widgetList ?? this.widgetList,
       paddingHorizontal: paddingHorizontal ?? this.paddingHorizontal,
       paddingVertical: paddingVertical ?? this.paddingVertical,
+      getWidgetsInPage: getWidgetsInPage ?? this.getWidgetsInPage,
     );
   }
-
 }

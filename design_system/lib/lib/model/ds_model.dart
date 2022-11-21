@@ -8,6 +8,7 @@ class DsModel {
   final double paddingHorizontal;
   final double paddingVertical;
   final List<DsModel> widgetList;
+  final bool getWidgetsInPage;
 
   const DsModel({
     this.widgetId = '',
@@ -17,6 +18,7 @@ class DsModel {
     this.paddingHorizontal = 0,
     this.paddingVertical = 0,
     this.widgetList = const [],
+    this.getWidgetsInPage = true,
   });
 
   DsModel copyWith({
@@ -26,6 +28,7 @@ class DsModel {
     String? pageName,
     double? paddingHorizontal,
     double? paddingVertical,
+    bool? getWidgetsInPage,
     List<DsModel>? widgetList,
   }) {
     return DsModel(
@@ -36,6 +39,7 @@ class DsModel {
       widgetList: widgetList ?? this.widgetList,
       paddingHorizontal: paddingHorizontal ?? this.paddingHorizontal,
       paddingVertical: paddingVertical ?? this.paddingVertical,
+      getWidgetsInPage: getWidgetsInPage ?? this.getWidgetsInPage,
     );
   }
 
@@ -47,6 +51,7 @@ class DsModel {
       'page_name': pageName,
       'padding_vertical': paddingVertical,
       'padding_horizontal': paddingHorizontal,
+      'get_widgets_in_page': getWidgetsInPage,
       'widget_list': widgetList.map((x) => x.toMap()).toList(),
     };
   }
@@ -57,8 +62,9 @@ class DsModel {
       title: map['title'] ?? '',
       route: map['route'] ?? '',
       pageName: map['page_name'] ?? '',
-      paddingHorizontal: double.tryParse('${map['padding_horizontal']}' ) ?? 0.0,
-      paddingVertical: double.tryParse('${map['padding_vertical']}' ) ?? 0.0,
+      paddingHorizontal: double.tryParse('${map['padding_horizontal']}') ?? 0.0,
+      paddingVertical: double.tryParse('${map['padding_vertical']}') ?? 0.0,
+      getWidgetsInPage: map['get_widgets_in_page'] ?? '',
       widgetList:
           map['widget_list'] != null ? List<DsModel>.from(map['widget_list']?.map((x) => DsModel.fromMap(x))) : [],
     );

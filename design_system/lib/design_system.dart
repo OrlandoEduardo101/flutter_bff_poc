@@ -10,3 +10,5 @@ export './lib/model/ds_model.dart';
 export './lib/page_base/page_base.dart';
 export './lib/resolver/widget_resolver.dart';
 export './lib/structural_widgets/row_widget.dart';
+export './lib/text/text_title_widget.dart';
+export './lib/text/text_field_widget.dart';
