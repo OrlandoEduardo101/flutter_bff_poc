@@ -13,7 +13,7 @@ void main() {
   late final IIncrementUsecase incrementUsecase;
   late final IDecrementUsecase decrementUsecase;
 
-  setUp(() {
+  setUpAll(() {
     incrementUsecase = MockIncrementUsecase();
     decrementUsecase = MockDecrementUsecase();
   });

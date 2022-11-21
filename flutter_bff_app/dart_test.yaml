@@ -1,0 +1,16 @@
+timeout: 15m
+tags:
+  golden:
+    allow_test_randomization: false
+  atom:
+    allow_test_randomization: false
+  molecule:
+    allow_test_randomization: false
+  organism:
+    allow_test_randomization: false
+  mobile:
+    allow_test_randomization: false
+  desktop:
+    allow_test_randomization: false
+
+  

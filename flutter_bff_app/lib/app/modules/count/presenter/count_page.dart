@@ -22,16 +22,22 @@ class CountPageState extends State<CountPage> {
         title: Text(widget.title),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           ScopedBuilder<CountStore, Exception, int>.transition(
             store: store,
             onLoading: (context) => const Center(child: CircularProgressIndicator.adaptive(),),
-            onState: (context, state) => Center(child: Text('$state'),),
+            onState: (context, state) => Center(child: Text('$state', style: const TextStyle(
+              fontSize: 22,
+            )),),
           ),
         ],
       ),
-      floatingActionButton: Row(children: [
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
         FloatingActionButton(onPressed: store.decrementCount, child: const Icon(Icons.remove)),
+        const SizedBox(width: 50,),
         FloatingActionButton(onPressed: store.incrementCount, child: const Icon(Icons.add)),
       ],),
     );
