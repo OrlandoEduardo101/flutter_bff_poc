@@ -41,6 +41,8 @@ dependencies:
     path: ../design_system
   uno: ^1.0.1+5
   mocktail: ^0.3.0
+  hive_flutter: ^1.1.0
+  hive: ^2.2.3
 
 dev_dependencies:
   flutter_test:
