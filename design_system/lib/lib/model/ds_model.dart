@@ -64,7 +64,7 @@ class DsModel {
       pageName: map['page_name'] ?? '',
       paddingHorizontal: double.tryParse('${map['padding_horizontal']}') ?? 0.0,
       paddingVertical: double.tryParse('${map['padding_vertical']}') ?? 0.0,
-      getWidgetsInPage: map['get_widgets_in_page'] ?? '',
+      getWidgetsInPage: map['get_widgets_in_page'] ?? false,
       widgetList:
           map['widget_list'] != null ? List<DsModel>.from(map['widget_list']?.map((x) => DsModel.fromMap(x))) : [],
     );
